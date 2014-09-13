@@ -1,0 +1,1 @@
+web: gunicorn --pythonpath="$PWD/oh_backend" wsgi:application
