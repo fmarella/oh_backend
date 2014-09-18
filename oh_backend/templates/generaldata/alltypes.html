@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+
+{% block title %}{% trans "Types" %}{% endblock title %}
+
+{% block content %}
+<div class="row">
+<div class="col-xs-6 col-md-4">
+<ul id="submenu" class="nav nav-stacked" role="tablist">
+  <li><a href="/generaldata/admissiontype">Admission Type</a></li>
+  <li><a href="/generaldata/dischargetype">Discharge Type</a></li>
+  <li><a href="/generaldata/deliverytype">Delivery Type</a></li>
+  <li><a href="#">Delivery Result Type</a></li>
+  <li><a href="#">Disease Type</a></li>
+  <li><a href="#">Exam Type</a></li>
+  <li><a href="#">Medicals Stock Mov Type</a></li>
+  <li><a href="#">Medicals Type</a></li>
+  <li><a href="#">Operation Type</a></li>
+  <li><a href="#">Pregnant Treatment</a></li>
+  <li><a href="#">Other Prices</a></li>
+  <li><a href="#">Age Type</a></li>
+  <li><a href="#">Vaccine Type</a></li>
+
+</ul>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-8">
+
+{% block inside %}
+{% endblock inside %}
+
+</div>
+
+{% endblock content %}

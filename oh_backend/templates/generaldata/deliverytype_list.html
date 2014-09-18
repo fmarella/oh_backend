@@ -1,0 +1,45 @@
+{% extends "generaldata/alltypes.html" %}
+{% load i18n %}
+{% load endless %}
+
+
+{% block title %}{% trans "Delivery Type" %}{% endblock title %}
+
+{% block inside %}
+<h1>{% trans "Delivery Type" %}</h1>
+<button class="btn btn-primary" id="add-opener">Add</button>
+<button class="btn btn-primary" id="edit-opener">Edit</button>
+<button class="btn btn-primary" id="delete-opener">Delete</button>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><input type="checkbox" /></th>
+      <th>CODE</th>
+      <th>DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% paginate object_list %}
+  {% for item in object_list %}
+    <tr>
+      <td><input type="checkbox" /></td>
+      <td><a href="{% url 'generaldata:deliverytypeDetail' item.dlt_id_a %}">{{ item.dlt_id_a }}</a></td>
+      <td>{{ item.dlt_desc }}</td>
+    </tr>
+  {% endfor %}
+   </tbody>
+ </table>
+{% show_pages %}
+
+<div id="add_dialog" title="Add a Delivery Type">
+    <form id="type_form" action="{% url 'generaldata:deliverytypeAdd' %}" method="POST">
+        {% csrf_token %}
+        <label>Code: <input type="text" name="code" /></label>
+        <label>Description: <input type="text" name="description" /></label><br/>
+        <button class="btn">Save</button>
+    </form>
+</div>
+
+
+{% endblock inside %}
+
